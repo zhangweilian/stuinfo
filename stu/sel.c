@@ -37,10 +37,11 @@ int cgiMain()
 	if (name[0] == '*')
 	{
 		sprintf(sql, "select * from information,school,score where information.no=score.no and information.sno=school.sno");
+		//sprintf(sql, "select * from information");
 	}
 	else
 	{
-		sprintf(sql, "select * from information where name = '%s'", name);
+		sprintf(sql, "select * from information,school,score where information.no=score.no and information.sno=school.sno and name = '%s'", name);
 	}
 
 
