@@ -29,7 +29,7 @@ int cgiMain()
 
 	//初始化
 	db = mysql_init(NULL);
-	if (db == NULL)
+  if (db == NULL)
 	{
 		fprintf(cgiOut,"mysql_init fail:%s\n", mysql_error(db));
 		return -1;
@@ -45,7 +45,7 @@ int cgiMain()
 	}
 
 
-	sprintf(sql, "update information set sign='0' where no = %d", atoi(no));
+	sprintf(sql, "delete from information  where no = %d", atoi(no));
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));

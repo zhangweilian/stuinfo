@@ -21,9 +21,10 @@ int cgiMain()
 		</head>");
 
 	char name[32] = "\0";
+
 	int status = 0;
 
-	status = cgiFormString("name",  name, 32);
+	status = cgiFormString("name", name, 32);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get name error!\n");
@@ -36,11 +37,10 @@ int cgiMain()
 
 	if (name[0] == '*')
 	{
-		sprintf(sql, "select information.no,name,sex,age,school.sno,sdept,smajor,cno,cname,cgrade from information,school,score where information.no=score.no  and information.sno=school.sno");
+		sprintf(sql, "select information.no,name,sex,age,school.sno,sign,sdept,smajor,cno,cname,cgrade from information,school,score where information.no=score.no  and information.sno=school.sno");
 		//sprintf(sql, "select * from information");
-}
-	else{
-		sprintf(sql, "select information.no,name,sex,age,school.sno,sdept,smajor,cno,cname,cgrade from information,school,score where information.no=score.no and information.sno=school.sno and name = '%s' group by no,sno", name);
+}else{
+		sprintf(sql, "select information.no,name,sex,age,school.sno,sign,sdept,smajor,cno,cname,cgrade from information,school,score where information.no=score.no and information.sno=school.sno and name = '%s' group by no,sno", name);
 	}
 
 

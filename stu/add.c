@@ -14,6 +14,7 @@ int cgiMain()
 	char no[32] = "\0";
 	char sex[32] = "\0";
 	char sno[32] = "\0";
+	char sign[32] = "\0";
 
 	int status = 0;
 
@@ -49,10 +50,16 @@ int cgiMain()
 		fprintf(cgiOut, "get sno error!\n");
 		return 1;
 	}
+	status = cgiFormString("sign",  sign, 32);
+	if (status != cgiFormSuccess)
+	{
+		fprintf(cgiOut, "get sign error!\n");
+		return 1;
+	}
 
 
 
-	fprintf(cgiOut, " no= %s,name = %s, age = %s,sex= %s, sno= %s\n", no,name, age,sex,sno);
+	fprintf(cgiOut, " no= %s,name = %s, age = %s,sex= %s, sno= %s,sign=%s\n", no,name, age,sex,sno,sign);
 
 	int ret;
 	char sql[128] = "\0";
@@ -77,7 +84,7 @@ int cgiMain()
 
 
 
-	strcpy(sql, "create table information(no int not null primary key, name varchar(20) not null,sex varchar(20) not null, age int not null,sno int not null)");
+	strcpy(sql, "create table information(no int not null primary key, name varchar(20) not null,sex varchar(20) not null, age int not null,sno int not null,sign int not null)");
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		if (ret != 1)
@@ -90,7 +97,7 @@ int cgiMain()
 
 
 
-	sprintf(sql, "insert into information values(%d, '%s','%s', %d, %d)", atoi(no), name, sex, atoi(age),atoi(sno));
+	sprintf(sql, "insert into information values(%d, '%s','%s', %d, %d,%d)", atoi(no), name, sex, atoi(age),atoi(sno),atoi(sign));
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));
