@@ -71,7 +71,7 @@ int cgiMain()
 
 
 
-	strcpy(sql, "create table score(no int not null,cno int not null primary key,cname varchar(20) not null, cgrade int not null)");
+	strcpy(sql, "create table score(no int not null,cno int not null,cname varchar(20) not null, cgrade int not null)");
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		if (ret != 1)

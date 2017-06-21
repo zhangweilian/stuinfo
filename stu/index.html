@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>学生信息管理系统</title>
+    <title>河北地质大学学生信息管理系统</title>
     <link rel="stylesheet" type="text/css" href="./public/css/bootstrap.min.css">
     <style type="text/css">
     body {
@@ -38,7 +38,7 @@
 </head>
 
 <body>
-    <h1 class="header text-center">学生信息管理系统</h1>
+    <h1 class="header text-center">河北地质大学学生信息管理系统</h1>
     <div class="container">
         <div class="operation row">
             <div class="text-center col-md-3 col-sm-6">
@@ -133,20 +133,38 @@
                 <div class="form-group">
                     <label for="cno" class="col-sm-2 control-label"> 课程号</label>
                     <div class="col-sm-10">
-                      <select  name="sno" >
+                      <select  name="cno" >
                       <option value='1'>
-                        软件工程
+                        数据库
                       </option>
                       <option value='2'>
-                        网络工程
+                        数据结构
                       </option>
                       <option value='3'>
-                        通信工程
+                        java web
                       </option>
 
                       </select>
                     </div>
                 </div>
+
+                <div class="form-group">
+                   <label for="cname" class="col-sm-2 control-label">学生课程名字</label>
+                    <div class="col-sm-10">
+                      <select  name="cname" >
+                        <option value='数据库'>
+                        数据库
+                        </option>
+                        <option value='数据结构'>
+                          数据结构
+                        </option>
+                        <option value='java web'>
+                          java web
+                        </option>
+                      </select>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <label for="cgrade" class="col-sm-2 control-label">学生成绩</label>
@@ -260,13 +278,35 @@
                     <div class="form-group">
                         <label for="cno-mod" class="col-sm-2 control-label">学生课程号</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cno" class="form-control" id="cno-mod" placeholder="请输入学生课程号">
+                          <div class="col-sm-10">
+                            <select  name="cno" >
+                            <option value='1'>
+                              数据库
+                            </option>
+                            <option value='2'>
+                              数据结构
+                            </option>
+                            <option value='3'>
+                              java web
+                            </option>
+
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="cname-mod" class="col-sm-2 control-label">学生课程名字</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cname" class="form-control" id="cname-mod" placeholder="请输入学生课程名字">
+                          <select  name="cname" >
+                            <option value='数据库'>
+                            数据库
+                            </option>
+                            <option value='数据结构'>
+                              数据结构
+                            </option>
+                            <option value='java web'>
+                              java web
+                            </option>
+                          </select>
                         </div>
                     </div>
                     <div class="form-group">
