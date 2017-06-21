@@ -11,7 +11,7 @@ int cgiMain()
 
 	char cname[32] = "\0";
 	char cno[32] = "\0";
-	char no[32] = "\0";
+	char no[20] = "\0";
 	char cgrade[32] = "\0";
 
 	int status = 0;
@@ -30,7 +30,7 @@ int cgiMain()
 		return 1;
 	}
 
-	status = cgiFormString("no",  no, 32);
+	status = cgiFormString("no",  no, 20);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get no error!\n");
@@ -71,7 +71,7 @@ int cgiMain()
 
 
 
-	strcpy(sql, "create table score(no int not null,cno int not null,cname varchar(20) not null, cgrade int not null)");
+	strcpy(sql, "create table score(no varchar(20) not null,cno int not null,cname varchar(20) not null, cgrade int not null)");
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		if (ret != 1)
@@ -84,7 +84,7 @@ int cgiMain()
 
 
 
-	sprintf(sql, "insert into score values(%d, %d,'%s', %d)", atoi(no), atoi(cno), cname, atoi(cgrade));
+	sprintf(sql, "insert into score values('%s', %d,'%s', %d)", no, atoi(cno), cname, atoi(cgrade));
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));

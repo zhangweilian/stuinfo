@@ -101,9 +101,10 @@ int cgiMain()
 	{
 		fprintf(cgiOut,"<tr>");
 		len = mysql_fetch_lengths(res);
+
 		for (i = 0; i < fields ; i++)
 		{
-			fprintf(cgiOut,"<td>%.*s</td>", (int)len[i], row[i]);
+			fprintf(cgiOut,"<td class=%d>%.*s</td>", i, (int)len[i], row[i]);
 		}
 		fprintf(cgiOut,"</tr>");
 	}
