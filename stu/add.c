@@ -9,8 +9,8 @@ int cgiMain()
 
 	fprintf(cgiOut, "Content-type:text/html;charset=utf-8\n\n");
 
-	char name[32] = "\0";
-	char age[32] = "\0";
+	char name[20] = "\0";
+	char age[16] = "\0";
 	char no[20] = "\0";
 	char sex[32] = "\0";
 	char sno[32] = "\0";
@@ -18,7 +18,7 @@ int cgiMain()
 
 	int status = 0;
 
-	status = cgiFormString("name",  name, 32);
+	status = cgiFormString("name",  name, 20);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get name error!\n");
@@ -68,6 +68,7 @@ int cgiMain()
 
 	//初始化
 	db = mysql_init(NULL);
+	mysql_options(db,MYSQL_SET_CHARSET_NAME,"utf8");
 	if (db == NULL)
 	{
 		fprintf(cgiOut,"mysql_init fail:%s\n", mysql_error(db));

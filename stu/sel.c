@@ -20,11 +20,12 @@ int cgiMain()
 		    <link rel=\"stylesheet\" href=\"/stu/public/css/bootstrap.min.css\">\
 		</head>");
 
-	char name[32] = "\0";
+	char name[20] = "\0";
 
 	int status = 0;
 
-	status = cgiFormString("name", name, 32);
+	status = cgiFormString("name", name, 20);
+
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get name error!\n");
@@ -39,13 +40,16 @@ int cgiMain()
 	{
 		sprintf(sql, "select information.no,name,sex,age,school.sno,sign,sdept,smajor,cno,cname,cgrade from information,school,score where information.no=score.no  and information.sno=school.sno");
 		//sprintf(sql, "select * from information");
+
 }else{
-		sprintf(sql, "select information.no,name,sex,age,school.sno,sign,sdept,smajor,cno,cname,cgrade from information,school,score where information.no=score.no and information.sno=school.sno and name = '%s' group by no,sno", name);
+	  fprintf(cgiOut, "name = %s\n", name);
+		sprintf(sql, "select * from information where name = '%s'", name);
 	}
 
 
 	//初始化
 	db = mysql_init(NULL);
+	mysql_options(db,MYSQL_SET_CHARSET_NAME,"utf8");
 	if (db == NULL)
 	{
 		fprintf(cgiOut,"mysql_init fail:%s\n", mysql_error(db));

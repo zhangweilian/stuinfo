@@ -13,4 +13,5 @@ clean:
 	rm ./*.cgi
 install:
 				cp *.cgi /usr/lib/cgi-bin/sx
-				cp stu.html /usr/lib/cgi-bin/sx 
+				cp stu.html /usr/lib/cgi-bin/sx
+				cp teacher.html /usr/lib/cgi-bin/sx

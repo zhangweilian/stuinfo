@@ -44,24 +44,15 @@
             <div class="text-center col-md-3 col-sm-6">
                 <button>添加学生信息</button>
             </div>
-            <div class="text-center col-md-3 col-sm-6">
-                <button>添加学生成绩信息</button>
-            </div>
+
             <div class="text-center col-md-3 col-sm-6">
                 <button>查询学生信息</button>
             </div>
             <div class="text-center col-md-3 col-sm-6">
                 <button>修改学生信息</button>
             </div>
-            <div class="text-center col-md-3 col-sm-6">
-                <button>修改学生成绩信息</button>
-            </div>
-            <div class="text-center col-md-3 col-sm-6">
-                <button>删除学生信息</button>
-            </div>
-            <div class="text-center col-md-3 col-sm-6">
-                <button>永久删除学生信息</button>
-            </div>
+
+
         </div>
         <ul class="forms">
             <li class="show">
@@ -121,71 +112,6 @@
                     </div>
                 </form>
             </li>
-
-           <li>
-            <form class="form-horizontal" method="get" action="/cgi-bin/sx/add1.cgi">
-                <div class="form-group">
-                    <label for="no" class="col-sm-2 control-label">学生学号</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="no" class="form-control" id="no" placeholder="请输入学生学号">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="cno" class="col-sm-2 control-label"> 课程号</label>
-                    <div class="col-sm-10">
-                      <select  name="cno" >
-                      <option value='1'>
-                        数据库
-                      </option>
-                      <option value='2'>
-                        数据结构
-                      </option>
-                      <option value='3'>
-                        java web
-                      </option>
-
-                      </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                   <label for="cname" class="col-sm-2 control-label">学生课程名字</label>
-                    <div class="col-sm-10">
-                      <select  name="cname" >
-                        <option value='数据库'>
-                        数据库
-                        </option>
-                        <option value='数据结构'>
-                          数据结构
-                        </option>
-                        <option value='java web'>
-                          java web
-                        </option>
-                      </select>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="cgrade" class="col-sm-2 control-label">学生成绩</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="cgrade" class="form-control" id="cgrade" placeholder="请输入学生成绩">
-                    </div>
-                </div>
-
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-success">提交</button>
-                    <button type="reset" class="btn btn-success">重置</button>
-                </div>
-            </form>
-
-
-          </li>
-
-
-
-
 
 
 
@@ -267,101 +193,6 @@
 
 
 
-            <li>
-                <form class="form-horizontal" method="get" action="/cgi-bin/sx/mod1.cgi">
-                    <div class="form-group">
-                        <label for="no-mod" class="col-sm-2 control-label">学生学号</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="no" class="form-control" id="no-mod" placeholder="请输入学生学号">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cno-mod" class="col-sm-2 control-label">学生课程号</label>
-                        <div class="col-sm-10">
-                          <div class="col-sm-10">
-                            <select  name="cno" >
-                            <option value='1'>
-                              数据库
-                            </option>
-                            <option value='2'>
-                              数据结构
-                            </option>
-                            <option value='3'>
-                              java web
-                            </option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cname-mod" class="col-sm-2 control-label">学生课程名字</label>
-                        <div class="col-sm-10">
-                          <select  name="cname" >
-                            <option value='数据库'>
-                            数据库
-                            </option>
-                            <option value='数据结构'>
-                              数据结构
-                            </option>
-                            <option value='java web'>
-                              java web
-                            </option>
-                          </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cgrade-mod" class="col-sm-2 control-label">学生课程成绩</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="cgrade" class="form-control" id="cgrade-mod" placeholder="请输入学生课程成绩">
-                        </div>
-                    </div>
-
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success">提交</button>
-                        <button type="reset" class="btn btn-success">重置</button>
-                    </div>
-                </form>
-            </li>
-
-
-
-
-
-
-
-
-
-
-            <li>
-                <form class="form-horizontal" method="get" action="/cgi-bin/sx/del.cgi">
-                    <div class="form-group">
-                        <label for="no-del" class="col-sm-2 control-label">输入要删除的学生no</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="no" class="form-control" id="no-del" placeholder="输入学生no">
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success">提交</button>
-                        <button type="reset" class="btn btn-success">重置</button>
-                    </div>
-                </form>
-            </li>
-
-            <li>
-                <form class="form-horizontal" method="get" action="/cgi-bin/sx/del1.cgi">
-                    <div class="form-group">
-                        <label for="no-del" class="col-sm-2 control-label">输入要删除的学生no</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="no" class="form-control" id="no-del" placeholder="输入学生no">
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success">提交</button>
-                        <button type="reset" class="btn btn-success">重置</button>
-                    </div>
-                </form>
-            </li>
 
         </ul>
     </div>
