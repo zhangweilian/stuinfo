@@ -9,12 +9,12 @@ int cgiMain()
 
 	fprintf(cgiOut, "Content-type:text/html;charset=utf-8\n\n");
 
-	char no[32] = "\0";
+	char no[20] = "\0";
 
 	int status = 0;
 
 
-	status = cgiFormString("no",  no, 32);
+	status = cgiFormString("no",  no, 20);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get no error!\n");
@@ -46,7 +46,9 @@ int cgiMain()
 	}
 
 
-	sprintf(sql, "delete from information  where no = %d", atoi(no));
+	sprintf(sql, "delete from information  where no = '%s'", no);
+	fprintf(sql, "delete from information  where no = '%s'", no);
+
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));

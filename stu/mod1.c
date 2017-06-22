@@ -12,7 +12,7 @@ int cgiMain()
 	char cname[32] = "\0";
 	char cno[32] = "\0";
 	char cgrade[32] = "\0";
-	char no[32] = "\0";
+	char no[20] = "\0";
 
 	int status = 0;
 
@@ -36,7 +36,7 @@ int cgiMain()
 		return 1;
 	}
 
-	status = cgiFormString("no",  no, 32);
+	status = cgiFormString("no",  no, 20);
 	if (status != cgiFormSuccess)
 	{
 		fprintf(cgiOut, "get no error!\n");
@@ -68,7 +68,8 @@ mysql_options(db,MYSQL_SET_CHARSET_NAME,"utf8");
 	}
 
 
-	sprintf(sql, "update score set cno= %d,cname='%s',cgrade= %d where no = %d ", atoi(cno),cname, atoi(cgrade),atoi(no));
+	sprintf(sql, "update score set cno= %d,cname='%s',cgrade= %d where no = '%s' ", atoi(cno),cname, atoi(cgrade),no);
+	//fprintf(cgiOut,"update score set cno= %d,cname='%s',cgrade= %d where no = '%s' ", atoi(cno),cname, atoi(cgrade),no);
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));
